@@ -23,6 +23,7 @@ export async function POST( request ) {
 			websiteUrl: body.websiteUrl,
 			appIcon: body.appIcon || '',
 			appIconSize: body.appIconSize || 100,
+			offlineGameEnabled: false !== body.offlineGameEnabled,
 			preloader: {
 				enabled: false !== body.preloaderEnabled,
 				logo: body.logo || '',

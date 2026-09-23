@@ -60,6 +60,7 @@ const initialConfig = {
 	packageId: '',
 	appIcon: '',
 	appIconSize: 100,
+	offlineGameEnabled: true,
 	buildType: 'test',
 	preloader: {
 		enabled: true,
@@ -238,6 +239,7 @@ export default function Dashboard() {
 					packageId: config.packageId,
 					appIcon: config.appIcon,
 					appIconSize: config.appIconSize,
+					offlineGameEnabled: config.offlineGameEnabled,
 					buildType: config.buildType,
 					preloaderEnabled: config.preloader.enabled,
 					logo: config.preloader.logo,
@@ -551,6 +553,37 @@ export default function Dashboard() {
 							</p>
 						</>
 					) }
+
+					<h3 className={ styles.subhead }>Offline Mode</h3>
+					<div className={ styles.field }>
+						<div className={ styles.segmented }>
+							<label className={ styles.segmentedOption }>
+								<input
+									type="radio"
+									name="offlineGameEnabled"
+									checked={ config.offlineGameEnabled }
+									onChange={ () => setField( 'offlineGameEnabled', true ) }
+								/>
+								Yes, show a game
+							</label>
+							<label className={ styles.segmentedOption }>
+								<input
+									type="radio"
+									name="offlineGameEnabled"
+									checked={ ! config.offlineGameEnabled }
+									onChange={ () => setField( 'offlineGameEnabled', false ) }
+								/>
+								No
+							</label>
+						</div>
+						<p className={ styles.note }>
+							When the device/PC loses its internet connection, the app shows a built-in offline
+							game (with a &quot;You are offline&quot; banner) instead of a blank error page — and
+							switches back to the live site automatically the moment the connection returns.
+							Currently wired up for Android and Desktop; iOS only bundles the file (no
+							auto-switch yet — needs a Mac to finish anyway).
+						</p>
+					</div>
 
 					<div className={ styles.field }>
 						<label>Build Type</label>

@@ -29,6 +29,14 @@ Dashboard (Next.js, localhost:4000)  →  data/jobs.json  →  worker.js (polls,
   from that browser. Nothing is sent anywhere for this — it's a display filter
   over the same local `data/jobs.json`.
 - **Light/dark theme**, remembered per browser.
+- **Offline mode** — optional, on by default. If the device/PC loses its
+  internet connection, the app shows a built-in offline game (a little
+  hypercar chase, `offline-game.html` at the repo root — edit it to change the
+  game) with a "You are offline" banner, and switches back to the live site
+  automatically the instant the connection returns. Wired up natively for
+  Android (`ConnectivityManager`) and Desktop (Electron's `did-fail-load`);
+  iOS gets the file bundled but not yet the auto-switch logic (needs a Mac to
+  add/verify).
 
 ## What you actually get per platform
 
