@@ -133,6 +133,14 @@ downloading Gradle/Electron, several minutes); later builds are much faster.
   scheme; the dashboard auto-adds `https://` if you forget it, but double
   check the site itself loads over HTTPS without a redirect loop.
 
+## Running it somewhere other than your own PC
+
+Vercel/Render/Railway-style serverless hosts **can't** run this — see "How it
+works" above for why (persistent worker, real filesystem, native build
+tools). For a genuinely free, always-on option, see
+[DEPLOY.md](./DEPLOY.md) — it sets up an Oracle Cloud "Always Free" VM
+(4 CPU / 24GB RAM, free forever) with one setup script.
+
 ## Optional: WordPress plugin integration
 
 This server also exposes `POST /api/webhook` so the companion WordPress
