@@ -76,6 +76,8 @@ async function runDesktop( job ) {
 		updateJob( job.id, {
 			desktopStatus: 'complete',
 			desktopWindowsUrl: desktopResult.desktopWindowsUrl,
+			desktopLinuxUrl: desktopResult.desktopLinuxUrl,
+			desktopMacUrl: desktopResult.desktopMacUrl,
 			desktopSourceUrl: desktopResult.desktopSourceUrl,
 			desktopNote: desktopResult.desktopNote,
 		} );

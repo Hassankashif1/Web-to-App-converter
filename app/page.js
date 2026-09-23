@@ -37,7 +37,7 @@ function platformStatus( job, platform ) {
 	if ( 'ios' === platform ) {
 		return job.iosDownloadUrl ? 'complete' : 'pending';
 	}
-	return ( job.desktopWindowsUrl || job.desktopSourceUrl ) ? 'complete' : 'pending';
+	return ( job.desktopWindowsUrl || job.desktopLinuxUrl || job.desktopMacUrl || job.desktopSourceUrl ) ? 'complete' : 'pending';
 }
 
 const LOADER_CLASS = {
@@ -764,6 +764,12 @@ export default function Dashboard() {
 										<div className={ styles.platformPanelLinks }>
 											{ job.desktopWindowsUrl && (
 												<a href={ job.desktopWindowsUrl } download={ `${ baseName }.exe` } target="_blank" rel="noreferrer">Download for Windows (.exe)</a>
+											) }
+											{ job.desktopLinuxUrl && (
+												<a href={ job.desktopLinuxUrl } target="_blank" rel="noreferrer">Download for Linux</a>
+											) }
+											{ job.desktopMacUrl && (
+												<a href={ job.desktopMacUrl } download={ `${ baseName }.dmg` } target="_blank" rel="noreferrer">Download for macOS (.dmg)</a>
 											) }
 											{ job.desktopSourceUrl && (
 												<a href={ job.desktopSourceUrl } download={ `${ baseName }-desktop-source.zip` } target="_blank" rel="noreferrer">
